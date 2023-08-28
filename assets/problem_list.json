@@ -1,0 +1,15 @@
+[
+    {
+      "observation": "Ankle Sprain",
+      "status": "Active",
+      "date": "March 28, 2005",
+      "comments": "Slipped on ice and fell."
+    },
+    {
+      "observation": "Cholecystitis",
+      "status": "Resolved",
+      "date": "September 28, 2002",
+      "comments": "Surgery postponed until after delivery."
+    }
+]
+  

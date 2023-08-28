@@ -1,0 +1,17 @@
+[
+    {
+      "plannedActivityName": "Office consultation",
+      "plannedDate": "May 28, 2007",
+      "instructions": "Consultation with Dr. George Potomac for Asthma"
+    },
+    {
+      "plannedActivityName": "Chest X-Ray",
+      "plannedDate": "June 1, 2007",
+      "instructions": ""
+    },
+    {
+      "plannedActivityName": "Sputum Culture",
+      "plannedDate": "May 28, 2007",
+      "instructions": ""
+    }
+]
