@@ -9,6 +9,8 @@ import 'demographics_page.dart';
 import 'plan_of_care_page.dart';
 
 class CustomDrawer extends StatelessWidget {
+  const CustomDrawer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -16,12 +18,12 @@ class CustomDrawer extends StatelessWidget {
         children: <Widget>[
           Container(
             height: 100,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.blue, // Setting the background color to blue
             ),
-            child: Center(
+            child: const Center(
               child: Padding(
-                padding: const EdgeInsets.only(top: 40.0), // Adjusting the top padding
+                padding: EdgeInsets.only(top: 40.0), // Adjusting the top padding
                 child: Text(
                   'Menu',
                   style: TextStyle(
@@ -40,7 +42,7 @@ class CustomDrawer extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 children: <Widget>[
                   ListTile(
-                    title: Text(
+                    title: const Text(
                       'Allergies',
                       style: TextStyle(
                         fontSize: 16,
@@ -51,13 +53,13 @@ class CustomDrawer extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => AllergiesPage()),
+                        MaterialPageRoute(builder: (context) => const AllergiesPage()),
                       );
                     },
                   ),
-                  Divider(),
+                  const Divider(),
                   ListTile(
-                    title: Text(
+                    title: const Text(
                       'Immunizations',
                       style: TextStyle(
                         fontSize: 16,
@@ -68,13 +70,13 @@ class CustomDrawer extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => ImmunizationsPage()),
+                        MaterialPageRoute(builder: (context) => const ImmunizationsPage()),
                       );
                     },
                   ),
-                  Divider(),
+                  const Divider(),
                   ListTile(
-                    title: Text(
+                    title: const Text(
                       'Medication',
                       style: TextStyle(
                         fontSize: 16,
@@ -85,13 +87,13 @@ class CustomDrawer extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => MedicationPage()),
+                        MaterialPageRoute(builder: (context) => const MedicationPage()),
                       );
                     },
                   ),
-                  Divider(),
+                  const Divider(),
                   ListTile(
-                    title: Text(
+                    title: const Text(
                       'Problem List',
                       style: TextStyle(
                         fontSize: 16,
@@ -102,13 +104,13 @@ class CustomDrawer extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => ProblemListPage()),
+                        MaterialPageRoute(builder: (context) => const ProblemListPage()),
                       );
                     },
                   ),
-                  Divider(),
+                  const Divider(),
                   ListTile(
-                    title: Text(
+                    title: const Text(
                       'Procedures',
                       style: TextStyle(
                         fontSize: 16,
@@ -119,13 +121,13 @@ class CustomDrawer extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => ProceduresPage()),
+                        MaterialPageRoute(builder: (context) => const ProceduresPage()),
                       );
                     },
                   ),
-                  Divider(),
+                  const Divider(),
                   ListTile(
-                    title: Text(
+                    title: const Text(
                       'Guardian',
                       style: TextStyle(
                         fontSize: 16,
@@ -136,13 +138,13 @@ class CustomDrawer extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => GuardianPage()),
+                        MaterialPageRoute(builder: (context) => const GuardianPage()),
                       );
                     },
                   ),
-                  Divider(),
+                  const Divider(),
                   ListTile(
-                    title: Text(
+                    title: const Text(
                       'Demographics',
                       style: TextStyle(
                         fontSize: 16,
@@ -153,13 +155,13 @@ class CustomDrawer extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => DemographicsPage()),
+                        MaterialPageRoute(builder: (context) => const DemographicsPage()),
                       );
                     },
                   ),
-                  Divider(),
+                  const Divider(),
                   ListTile(
-                    title: Text(
+                    title: const Text(
                       'Plan of Care',
                       style: TextStyle(
                         fontSize: 16,
@@ -170,11 +172,11 @@ class CustomDrawer extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => PlanOfCarePage()),
+                        MaterialPageRoute(builder: (context) => const PlanOfCarePage()),
                       );
                     },
                   ),
-                  Divider(), // Adding one more divider after the Plan of Care page
+                  const Divider(), // Adding one more divider after the Plan of Care page
                 ],
               ),
             ),

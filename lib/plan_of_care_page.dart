@@ -7,6 +7,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class PlanOfCarePage extends StatefulWidget {
+  const PlanOfCarePage({super.key});
+
   @override
   _PlanOfCarePageState createState() => _PlanOfCarePageState();
 }
@@ -41,11 +43,11 @@ class _PlanOfCarePageState extends State<PlanOfCarePage> {
               fontFamily: GoogleFonts.playfairDisplay().fontFamily),
         ),
         leading: IconButton(
-          icon: Icon(Icons.home),
+          icon: const Icon(Icons.home),
           onPressed: () {
             Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (context) => HomePage()),
+              MaterialPageRoute(builder: (context) => const HomePage()),
               (Route<dynamic> route) => false,
             );
           },
@@ -53,13 +55,13 @@ class _PlanOfCarePageState extends State<PlanOfCarePage> {
         actions: [
           Builder(
             builder: (context) => IconButton(
-              icon: Icon(Icons.menu),
+              icon: const Icon(Icons.menu),
               onPressed: () => Scaffold.of(context).openEndDrawer(),
             ),
           ),
         ],
       ),
-      endDrawer: CustomDrawer(), // Including the custom drawer
+      endDrawer: const CustomDrawer(), // Including the custom drawer
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -79,44 +81,44 @@ class _PlanOfCarePageState extends State<PlanOfCarePage> {
                       children: <Widget>[
                         Row(
                           children: <Widget>[
-                            Icon(Icons.work, color: Colors.blue), // Planned Activity Icon
-                            SizedBox(width: 10),
+                            const Icon(Icons.work, color: Colors.blue), // Planned Activity Icon
+                            const SizedBox(width: 10),
                             Expanded(
                               child: Text(
                                 planOfCare.isNotEmpty
                                     ? planOfCare[0]['plannedActivityName']
                                     : '',
-                                style: TextStyle(fontSize: 16),
+                                style: const TextStyle(fontSize: 16),
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Row(
                           children: <Widget>[
-                            Icon(Icons.calendar_today, color: Colors.green), // Planned Date Icon
-                            SizedBox(width: 10),
+                            const Icon(Icons.calendar_today, color: Colors.green), // Planned Date Icon
+                            const SizedBox(width: 10),
                             Expanded(
                               child: Text(
                                 planOfCare.isNotEmpty
                                     ? 'Date: ${planOfCare[0]['plannedDate']}'
                                     : '',
-                                style: TextStyle(fontSize: 16),
+                                style: const TextStyle(fontSize: 16),
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Row(
                           children: <Widget>[
-                            Icon(Icons.description, color: Colors.orange), // Instructions Icon
-                            SizedBox(width: 10),
+                            const Icon(Icons.description, color: Colors.orange), // Instructions Icon
+                            const SizedBox(width: 10),
                             Expanded(
                               child: Text(
                                 planOfCare.isNotEmpty
                                     ? 'Instructions: ${planOfCare[0]['instructions']}'
                                     : '',
-                                style: TextStyle(fontSize: 16),
+                                style: const TextStyle(fontSize: 16),
                               ),
                             ),
                           ],
@@ -126,12 +128,12 @@ class _PlanOfCarePageState extends State<PlanOfCarePage> {
                   ),
                 ),
               ),
-              SizedBox(height: 8.0), // Adding some distance
+              const SizedBox(height: 8.0), // Adding some distance
               ListView.separated(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: planOfCare.length > 1 ? planOfCare.length - 1 : 0, // Adjusting the itemCount
-                separatorBuilder: (context, index) => SizedBox(height: 8.0),
+                separatorBuilder: (context, index) => const SizedBox(height: 8.0),
                 itemBuilder: (context, index) {
                   final itemIndex = index + 1;
                   return Card(
@@ -146,38 +148,38 @@ class _PlanOfCarePageState extends State<PlanOfCarePage> {
                         children: <Widget>[
                           Row(
                             children: <Widget>[
-                              Icon(Icons.work, color: Colors.blue), // Planned Activity Icon
-                              SizedBox(width: 10),
+                              const Icon(Icons.work, color: Colors.blue), // Planned Activity Icon
+                              const SizedBox(width: 10),
                               Expanded(
                                 child: Text(
                                   planOfCare[itemIndex]['plannedActivityName'],
-                                  style: TextStyle(fontSize: 16),
+                                  style: const TextStyle(fontSize: 16),
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Row(
                             children: <Widget>[
-                              Icon(Icons.calendar_today, color: Colors.green), // Planned Date Icon
-                              SizedBox(width: 10),
+                              const Icon(Icons.calendar_today, color: Colors.green), // Planned Date Icon
+                              const SizedBox(width: 10),
                               Expanded(
                                 child: Text(
                                   'Date: ${planOfCare[itemIndex]['plannedDate']}',
-                                  style: TextStyle(fontSize: 16),
+                                  style: const TextStyle(fontSize: 16),
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Row(
                             children: <Widget>[
-                              Icon(Icons.description, color: Colors.orange), // Instructions Icon
-                              SizedBox(width: 10),
+                              const Icon(Icons.description, color: Colors.orange), // Instructions Icon
+                              const SizedBox(width: 10),
                               Expanded(
                                 child: Text(
                                   'Instructions: ${planOfCare[itemIndex]['instructions']}',
-                                  style: TextStyle(fontSize: 16),
+                                  style: const TextStyle(fontSize: 16),
                                 ),
                               ),
                             ],
@@ -188,8 +190,8 @@ class _PlanOfCarePageState extends State<PlanOfCarePage> {
                   );
                 },
               ),
-              SizedBox(height: 16.0), // Adding some spacing before the chart
-              Container(
+              const SizedBox(height: 16.0), // Adding some spacing before the chart
+              SizedBox(
                 height: 300,
                 child: SfCartesianChart(
                   primaryXAxis: CategoryAxis(),

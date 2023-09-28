@@ -6,6 +6,8 @@ import 'home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ImmunizationsPage extends StatefulWidget {
+  const ImmunizationsPage({super.key});
+
   @override
   _ImmunizationsPageState createState() => _ImmunizationsPageState();
 }
@@ -41,11 +43,11 @@ class _ImmunizationsPageState extends State<ImmunizationsPage> {
           ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.home),
+          icon: const Icon(Icons.home),
           onPressed: () {
             Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (context) => HomePage()),
+              MaterialPageRoute(builder: (context) => const HomePage()),
               (Route<dynamic> route) => false,
             );
           },
@@ -53,13 +55,13 @@ class _ImmunizationsPageState extends State<ImmunizationsPage> {
         actions: [
           Builder(
             builder: (context) => IconButton(
-              icon: Icon(Icons.menu),
+              icon: const Icon(Icons.menu),
               onPressed: () => Scaffold.of(context).openEndDrawer(),
             ),
           ),
         ],
       ),
-      endDrawer: CustomDrawer(), // Including the custom drawer
+      endDrawer: const CustomDrawer(), // Including the custom drawer
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView.builder(
@@ -90,35 +92,35 @@ class _ImmunizationsPageState extends State<ImmunizationsPage> {
                       '${immunizations[index]['date']}',
                       iconColors[0],
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     buildRow(
                       Icons.local_hospital,
                       'Immunization Name',
                       '${immunizations[index]['immunizationName']}',
                       iconColors[1],
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     buildRow(
                       Icons.category,
                       'Type',
                       '${immunizations[index]['type']}',
                       iconColors[2],
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     buildRow(
                       Icons.format_list_numbered,
                       'Dose Quantity (value / unit)',
                       '${immunizations[index]['doseQuantity']}',
                       iconColors[3],
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     buildRow(
                       Icons.info,
                       'Education/Instructions',
                       '${immunizations[index]['instructions']}',
                       iconColors[4],
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                   ],
                 ),
               ),
@@ -138,19 +140,19 @@ class _ImmunizationsPageState extends State<ImmunizationsPage> {
     return Row(
       children: [
         Icon(icon, color: iconColor),
-        SizedBox(width: 5),
+        const SizedBox(width: 5),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 '$title:',
-                style: TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 16),
               ),
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               Text(
                 value,
-                style: TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 16),
               ),
             ],
           ),

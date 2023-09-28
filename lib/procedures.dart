@@ -8,6 +8,8 @@ import 'package:intl/intl.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProceduresPage extends StatefulWidget {
+  const ProceduresPage({super.key});
+
   @override
   _ProceduresPageState createState() => _ProceduresPageState();
 }
@@ -84,11 +86,11 @@ class _ProceduresPageState extends State<ProceduresPage> {
               fontFamily: GoogleFonts.playfairDisplay().fontFamily),
         ),
         leading: IconButton(
-          icon: Icon(Icons.home),
+          icon: const Icon(Icons.home),
           onPressed: () {
             Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (context) => HomePage()),
+              MaterialPageRoute(builder: (context) => const HomePage()),
               (Route<dynamic> route) => false,
             );
           },
@@ -96,13 +98,13 @@ class _ProceduresPageState extends State<ProceduresPage> {
         actions: [
           Builder(
             builder: (context) => IconButton(
-              icon: Icon(Icons.menu),
+              icon: const Icon(Icons.menu),
               onPressed: () => Scaffold.of(context).openEndDrawer(),
             ),
           ),
         ],
       ),
-      endDrawer: CustomDrawer(),
+      endDrawer: const CustomDrawer(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -116,10 +118,10 @@ class _ProceduresPageState extends State<ProceduresPage> {
                     fontWeight: FontWeight.bold,
                     fontFamily: GoogleFonts.sourceSansPro().fontFamily),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               ListView.builder(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: procedures.length,
                 itemBuilder: (context, index) {
                   return Card(
@@ -135,75 +137,75 @@ class _ProceduresPageState extends State<ProceduresPage> {
                         children: <Widget>[
                           Row(
                             children: [
-                              IconTheme(
+                              const IconTheme(
                                 data: IconThemeData(color: Colors.blue), // Setting the color of the icon
                                 child: Icon(Icons.medical_services), // Adding an icon before Procedure field
                               ),
-                              SizedBox(width: 5),
+                              const SizedBox(width: 5),
                               Flexible(
                                 child: Text(
                                   'Procedure: ${procedures[index]['procedure']}',
-                                  style: TextStyle(fontSize: 16),
+                                  style: const TextStyle(fontSize: 16),
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Row(
                             children: [
-                              IconTheme(
+                              const IconTheme(
                                 data: IconThemeData(color: Colors.green), // Setting the color of the icon
                                 child: Icon(Icons.calendar_today), // Adding an icon before Date field
                               ),
-                              SizedBox(width: 5),
+                              const SizedBox(width: 5),
                               Flexible(
                                 child: Text(
                                   'Date: ${procedures[index]['date']}',
-                                  style: TextStyle(fontSize: 16),
+                                  style: const TextStyle(fontSize: 16),
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Row(
                             children: [
-                              IconTheme(
+                              const IconTheme(
                                 data: IconThemeData(color: Colors.orange), // Setting the color of the icon
                                 child: Icon(Icons.person), // Adding an icon before Provider field
                               ),
-                              SizedBox(width: 5),
+                              const SizedBox(width: 5),
                               Flexible(
                                 child: Text(
                                   'Provider: ${procedures[index]['provider']}',
-                                  style: TextStyle(fontSize: 16),
+                                  style: const TextStyle(fontSize: 16),
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Row(
                             children: [
-                              IconTheme(
+                              const IconTheme(
                                 data: IconThemeData(color: Colors.red), // Setting the color of the icon
                                 child: Icon(Icons.location_on), // Adding an icon before Location field
                               ),
-                              SizedBox(width: 5),
+                              const SizedBox(width: 5),
                               Flexible(
                                 child: Text(
                                   'Location: ${procedures[index]['location']}',
-                                  style: TextStyle(fontSize: 16),
+                                  style: const TextStyle(fontSize: 16),
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                         ],
                       ),
                     ),
                   );
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 'Procedure Chart',
                 style: TextStyle(
@@ -211,8 +213,8 @@ class _ProceduresPageState extends State<ProceduresPage> {
                     fontWeight: FontWeight.bold,
                     fontFamily: GoogleFonts.sourceSansPro().fontFamily),
               ),
-              SizedBox(height: 10),
-              Container(
+              const SizedBox(height: 10),
+              SizedBox(
                 height: 400, // Adjusting the height of the chart container
                 child: SfCircularChart(
                   legend: Legend(
@@ -225,14 +227,14 @@ class _ProceduresPageState extends State<ProceduresPage> {
                       dataSource: _prepareProcedureData(),
                       xValueMapper: (ProcedureData data, _) => data.procedure,
                       yValueMapper: (ProcedureData data, _) => data.count,
-                      dataLabelSettings: DataLabelSettings(isVisible: true),
+                      dataLabelSettings: const DataLabelSettings(isVisible: true),
                       radius: '80%',
                       innerRadius: '50%',
                     )
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 'Provider Chart',
                 style: TextStyle(
@@ -240,8 +242,8 @@ class _ProceduresPageState extends State<ProceduresPage> {
                     fontWeight: FontWeight.bold,
                     fontFamily: GoogleFonts.sourceSansPro().fontFamily),
               ),
-              SizedBox(height: 10),
-              Container(
+              const SizedBox(height: 10),
+              SizedBox(
                 height: 400, // Adjusting the height of the chart container
                 child: SfCircularChart(
                   legend: Legend(
@@ -254,14 +256,14 @@ class _ProceduresPageState extends State<ProceduresPage> {
                       dataSource: _prepareProviderData(),
                       xValueMapper: (ProviderData data, _) => data.provider,
                       yValueMapper: (ProviderData data, _) => data.count,
-                      dataLabelSettings: DataLabelSettings(isVisible: true),
+                      dataLabelSettings: const DataLabelSettings(isVisible: true),
                       radius: '80%',
                       innerRadius: '50%',
                     )
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 'Location Chart',
                 style: TextStyle(
@@ -269,8 +271,8 @@ class _ProceduresPageState extends State<ProceduresPage> {
                     fontWeight: FontWeight.bold,
                     fontFamily: GoogleFonts.sourceSansPro().fontFamily),
               ),
-              SizedBox(height: 10),
-              Container(
+              const SizedBox(height: 10),
+              SizedBox(
                 height: 400, // Adjusting the height of the chart container
                 child: SfCircularChart(
                   legend: Legend(
@@ -283,14 +285,14 @@ class _ProceduresPageState extends State<ProceduresPage> {
                       dataSource: _prepareLocationData(),
                       xValueMapper: (LocationData data, _) => data.location,
                       yValueMapper: (LocationData data, _) => data.count,
-                      dataLabelSettings: DataLabelSettings(isVisible: true),
+                      dataLabelSettings: const DataLabelSettings(isVisible: true),
                       radius: '80%',
                       innerRadius: '50%',
                     )
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 'Add Procedure',
                 style: TextStyle(
@@ -298,10 +300,10 @@ class _ProceduresPageState extends State<ProceduresPage> {
                     fontWeight: FontWeight.bold,
                     fontFamily: GoogleFonts.sourceSansPro().fontFamily),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Container(
                 color: Colors.grey[300],
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 child: Form(
                   key: _formKey,
                   child: Column(
@@ -310,10 +312,10 @@ class _ProceduresPageState extends State<ProceduresPage> {
                       TextFormField(
                         decoration: InputDecoration(
                           labelText: 'Procedure Title',
-                          border: OutlineInputBorder(),
+                          border: const OutlineInputBorder(),
                           fillColor: Colors.grey[200],
                           filled: true,
-                          prefixIcon: Icon(Icons.medical_services, color: Colors.blue), // Adding prefix icon
+                          prefixIcon: const Icon(Icons.medical_services, color: Colors.blue), // Adding prefix icon
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -328,7 +330,7 @@ class _ProceduresPageState extends State<ProceduresPage> {
                           procedureTitle = value!;
                         },
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       GestureDetector(
                         onTap: () {
                           _selectDate(context);
@@ -337,10 +339,10 @@ class _ProceduresPageState extends State<ProceduresPage> {
                           child: TextFormField(
                             decoration: InputDecoration(
                               labelText: 'Date',
-                              border: OutlineInputBorder(),
+                              border: const OutlineInputBorder(),
                               fillColor: Colors.grey[200],
                               filled: true,
-                              prefixIcon: Icon(Icons.calendar_today, color: Colors.green), // Adding prefix icon
+                              prefixIcon: const Icon(Icons.calendar_today, color: Colors.green), // Adding prefix icon
                             ),
                             validator: (value) {
                               if (value == null || value.isEmpty) {
@@ -358,14 +360,14 @@ class _ProceduresPageState extends State<ProceduresPage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       TextFormField(
                         decoration: InputDecoration(
                           labelText: 'Provider',
-                          border: OutlineInputBorder(),
+                          border: const OutlineInputBorder(),
                           fillColor: Colors.grey[200],
                           filled: true,
-                          prefixIcon: Icon(Icons.person, color: Colors.orange), // Adding prefix icon
+                          prefixIcon: const Icon(Icons.person, color: Colors.orange), // Adding prefix icon
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -380,14 +382,14 @@ class _ProceduresPageState extends State<ProceduresPage> {
                           provider = value!;
                         },
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       TextFormField(
                         decoration: InputDecoration(
                           labelText: 'Location',
-                          border: OutlineInputBorder(),
+                          border: const OutlineInputBorder(),
                           fillColor: Colors.grey[200],
                           filled: true,
-                          prefixIcon: Icon(Icons.location_on, color: Colors.red), // Adding prefix icon
+                          prefixIcon: const Icon(Icons.location_on, color: Colors.red), // Adding prefix icon
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -402,7 +404,7 @@ class _ProceduresPageState extends State<ProceduresPage> {
                           location = value!;
                         },
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Center(
                         child: ElevatedButton(
                           onPressed: () {
@@ -422,7 +424,7 @@ class _ProceduresPageState extends State<ProceduresPage> {
                               });
                             }
                           },
-                          child: Text('Submit'),
+                          child: const Text('Submit'),
                         ),
                       ),
                     ],

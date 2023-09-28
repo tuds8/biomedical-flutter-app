@@ -6,6 +6,8 @@ import 'home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class GuardianPage extends StatefulWidget {
+  const GuardianPage({super.key});
+
   @override
   _GuardianPageState createState() => _GuardianPageState();
 }
@@ -40,11 +42,11 @@ class _GuardianPageState extends State<GuardianPage> {
           ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.home),
+          icon: const Icon(Icons.home),
           onPressed: () {
             Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (context) => HomePage()),
+              MaterialPageRoute(builder: (context) => const HomePage()),
               (Route<dynamic> route) => false,
             );
           },
@@ -52,19 +54,19 @@ class _GuardianPageState extends State<GuardianPage> {
         actions: [
           Builder(
             builder: (context) => IconButton(
-              icon: Icon(Icons.menu),
+              icon: const Icon(Icons.menu),
               onPressed: () => Scaffold.of(context).openEndDrawer(),
             ),
           ),
         ],
       ),
-      endDrawer: CustomDrawer(), // Including the custom drawer
+      endDrawer: const CustomDrawer(), // Including the custom drawer
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          SizedBox(height: 20),
-          Icon(Icons.ac_unit_rounded, size: 40, color: Colors.red),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
+          const Icon(Icons.ac_unit_rounded, size: 40, color: Colors.red),
+          const SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Card(
@@ -79,68 +81,68 @@ class _GuardianPageState extends State<GuardianPage> {
                   children: <Widget>[
                     Row(
                       children: <Widget>[
-                        Icon(Icons.work, color: Colors.blue), // Role Icon
-                        SizedBox(width: 10),
+                        const Icon(Icons.work, color: Colors.blue), // Role Icon
+                        const SizedBox(width: 10),
                         Expanded(
                           child: Text(
                             'Role: ${guardian['role']}',
-                            style: TextStyle(fontSize: 16),
+                            style: const TextStyle(fontSize: 16),
                             softWrap: true,
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Row(
                       children: <Widget>[
-                        Icon(Icons.person, color: Colors.green), // First Name Icon
-                        SizedBox(width: 10),
+                        const Icon(Icons.person, color: Colors.green), // First Name Icon
+                        const SizedBox(width: 10),
                         Expanded(
                           child: Text(
                             'First Name: ${guardian['firstName']}',
-                            style: TextStyle(fontSize: 16),
+                            style: const TextStyle(fontSize: 16),
                             softWrap: true,
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Row(
                       children: <Widget>[
-                        Icon(Icons.person, color: Colors.orange), // Last Name Icon
-                        SizedBox(width: 10),
+                        const Icon(Icons.person, color: Colors.orange), // Last Name Icon
+                        const SizedBox(width: 10),
                         Expanded(
                           child: Text(
                             'Last Name: ${guardian['lastName']}',
-                            style: TextStyle(fontSize: 16),
+                            style: const TextStyle(fontSize: 16),
                             softWrap: true,
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Row(
                       children: <Widget>[
-                        Icon(Icons.location_on, color: Colors.red), // Address Icon
-                        SizedBox(width: 10),
+                        const Icon(Icons.location_on, color: Colors.red), // Address Icon
+                        const SizedBox(width: 10),
                         Expanded(
                           child: Text(
                             'Address: ${guardian['address']}',
-                            style: TextStyle(fontSize: 16),
+                            style: const TextStyle(fontSize: 16),
                             softWrap: true,
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Row(
                       children: <Widget>[
-                        Icon(Icons.phone, color: Colors.purple), // Telephone Icon
-                        SizedBox(width: 10),
+                        const Icon(Icons.phone, color: Colors.purple), // Telephone Icon
+                        const SizedBox(width: 10),
                         Expanded(
                           child: Text(
                             'Telephone: ${guardian['telephone']}',
-                            style: TextStyle(fontSize: 16),
+                            style: const TextStyle(fontSize: 16),
                             softWrap: true,
                           ),
                         ),

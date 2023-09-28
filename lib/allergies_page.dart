@@ -8,6 +8,8 @@ import 'dart:io';
 import 'package:google_fonts/google_fonts.dart';
 
 class AllergiesPage extends StatefulWidget {
+  const AllergiesPage({super.key});
+
   @override
   _AllergiesPageState createState() => _AllergiesPageState();
 }
@@ -37,13 +39,13 @@ class _AllergiesPageState extends State<AllergiesPage> {
     // Helper function to get the severity icon based on the severity level
     switch (severity.toLowerCase()) {
       case 'moderate':
-        return Icon(Icons.error, color: Colors.yellow);
+        return const Icon(Icons.error, color: Colors.yellow);
       case 'moderate to severe':
-        return Icon(Icons.error, color: Colors.orange);
+        return const Icon(Icons.error, color: Colors.orange);
       case 'severe':
-        return Icon(Icons.error, color: Colors.red);
+        return const Icon(Icons.error, color: Colors.red);
       default:
-        return Icon(Icons.error, color: Colors.purple);
+        return const Icon(Icons.error, color: Colors.purple);
     }
   }
 
@@ -85,11 +87,11 @@ class _AllergiesPageState extends State<AllergiesPage> {
           ),
         ),
         leading: IconButton(
-          icon: Icon(Icons.home),
+          icon: const Icon(Icons.home),
           onPressed: () {
             Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (context) => HomePage()),
+              MaterialPageRoute(builder: (context) => const HomePage()),
               (Route<dynamic> route) => false,
             );
           },
@@ -97,13 +99,13 @@ class _AllergiesPageState extends State<AllergiesPage> {
         actions: [
           Builder(
             builder: (context) => IconButton(
-              icon: Icon(Icons.menu),
+              icon: const Icon(Icons.menu),
               onPressed: () => Scaffold.of(context).openEndDrawer(),
             ),
           ),
         ],
       ),
-      endDrawer: CustomDrawer(), // Including the custom drawer
+      endDrawer: const CustomDrawer(), // Including the custom drawer
       body: Column(
         children: [
           Expanded(
@@ -119,26 +121,26 @@ class _AllergiesPageState extends State<AllergiesPage> {
                   ),
                   color: getSeverityColor(allergies[index]['severity']), // Setting the color based on severity
                   child: ListTile(
-                    contentPadding: EdgeInsets.all(16),
+                    contentPadding: const EdgeInsets.all(16),
                     leading: getSeverityIcon(allergies[index]['severity']), // Setting the icon based on severity
                     title: Text(
                       allergies[index]['allergyName'], // Displaying the allergy name
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
                         Text(
                           'Reaction: ${allergies[index]['reaction']}', // Displaying the reaction
-                          style: TextStyle(fontSize: 16, color: Colors.black54),
+                          style: const TextStyle(fontSize: 16, color: Colors.black54),
                         ),
-                        SizedBox(height: 4),
+                        const SizedBox(height: 4),
                         Text(
                           'Severity: ${allergies[index]['severity']}', // Displaying the severity
-                          style: TextStyle(fontSize: 16, color: Colors.black54),
+                          style: const TextStyle(fontSize: 16, color: Colors.black54),
                         ),
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
                       ],
                     ),
                     isThreeLine: true,
@@ -148,7 +150,7 @@ class _AllergiesPageState extends State<AllergiesPage> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Form(
               key: _formKey, // Assigning the key to the form
               child: Column(
@@ -160,7 +162,7 @@ class _AllergiesPageState extends State<AllergiesPage> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Allergy Name',
                         contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                         border: InputBorder.none,
@@ -177,7 +179,7 @@ class _AllergiesPageState extends State<AllergiesPage> {
                       },
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Container(
                     // Container for reaction field
                     decoration: BoxDecoration(
@@ -185,7 +187,7 @@ class _AllergiesPageState extends State<AllergiesPage> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Reaction',
                         contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                         border: InputBorder.none,
@@ -202,7 +204,7 @@ class _AllergiesPageState extends State<AllergiesPage> {
                       },
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Container(
                     // Container for severity field
                     decoration: BoxDecoration(
@@ -210,7 +212,7 @@ class _AllergiesPageState extends State<AllergiesPage> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Severity',
                         contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                         border: InputBorder.none,
@@ -227,7 +229,7 @@ class _AllergiesPageState extends State<AllergiesPage> {
                       },
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
@@ -245,18 +247,18 @@ class _AllergiesPageState extends State<AllergiesPage> {
                         });
                       }
                     },
-                    child: Text('Submit'),
+                    child: const Text('Submit'),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   _image != null
                       ? Image.file(
                           _image!,
                           height: 100,
                         )
-                      : SizedBox(),
+                      : const SizedBox(),
                   ElevatedButton(
                     onPressed: _uploadPhoto,
-                    child: Text('Upload Photo'),
+                    child: const Text('Upload Photo'),
                   ),
                 ],
               ),

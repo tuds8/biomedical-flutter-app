@@ -8,6 +8,8 @@ import 'package:intl/intl.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class MedicationPage extends StatefulWidget {
+  const MedicationPage({super.key});
+
   @override
   _MedicationPageState createState() => _MedicationPageState();
 }
@@ -52,11 +54,11 @@ class _MedicationPageState extends State<MedicationPage> {
               fontFamily: GoogleFonts.playfairDisplay().fontFamily),
         ),
         leading: IconButton(
-          icon: Icon(Icons.home),
+          icon: const Icon(Icons.home),
           onPressed: () {
             Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (context) => HomePage()),
+              MaterialPageRoute(builder: (context) => const HomePage()),
               (Route<dynamic> route) => false,
             );
           },
@@ -64,13 +66,13 @@ class _MedicationPageState extends State<MedicationPage> {
         actions: [
           Builder(
             builder: (context) => IconButton(
-              icon: Icon(Icons.menu),
+              icon: const Icon(Icons.menu),
               onPressed: () => Scaffold.of(context).openEndDrawer(),
             ),
           ),
         ],
       ),
-      endDrawer: CustomDrawer(), // Including the custom drawer
+      endDrawer: const CustomDrawer(), // Including the custom drawer
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -84,10 +86,10 @@ class _MedicationPageState extends State<MedicationPage> {
                     fontWeight: FontWeight.bold,
                     fontFamily: GoogleFonts.sourceSansPro().fontFamily),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               ListView.builder(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: medications.length,
                 itemBuilder: (context, index) {
                   return Card(
@@ -103,89 +105,89 @@ class _MedicationPageState extends State<MedicationPage> {
                         children: <Widget>[
                           Row(
                             children: [
-                              Icon(Icons.medical_services, color: Colors.blue), // Adding an icon before Medication Name field
-                              SizedBox(width: 5),
+                              const Icon(Icons.medical_services, color: Colors.blue), // Adding an icon before Medication Name field
+                              const SizedBox(width: 5),
                               Flexible(
                                 child: Text(
                                   'Name: ${medications[index]['name']}',
-                                  style: TextStyle(fontSize: 16),
+                                  style: const TextStyle(fontSize: 16),
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Row(
                             children: [
-                              Icon(Icons.calendar_today, color: Colors.green), // Adding an icon before Date field
-                              SizedBox(width: 5),
+                              const Icon(Icons.calendar_today, color: Colors.green), // Adding an icon before Date field
+                              const SizedBox(width: 5),
                               Flexible(
                                 child: Text(
                                   'Date: ${DateFormat('MMMM dd, yyyy').format(DateTime.parse(medications[index]['date']))}',
-                                  style: TextStyle(fontSize: 16),
+                                  style: const TextStyle(fontSize: 16),
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Row(
                             children: [
-                              Icon(Icons.info, color: Colors.red), // Adding an icon before Instructions field
-                              SizedBox(width: 5),
+                              const Icon(Icons.info, color: Colors.red), // Adding an icon before Instructions field
+                              const SizedBox(width: 5),
                               Flexible(
                                 child: Text(
                                   'Instructions: ${medications[index]['instructions']}',
-                                  style: TextStyle(fontSize: 16),
+                                  style: const TextStyle(fontSize: 16),
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Row(
                             children: [
-                              Icon(Icons.format_list_numbered, color: Colors.orange), // Adding an icon before Dose Quantity field
-                              SizedBox(width: 5),
+                              const Icon(Icons.format_list_numbered, color: Colors.orange), // Adding an icon before Dose Quantity field
+                              const SizedBox(width: 5),
                               Flexible(
                                 child: Text(
                                   'Dose Quantity (value / unit): ${medications[index]['doseQuantity']}',
-                                  style: TextStyle(fontSize: 16),
+                                  style: const TextStyle(fontSize: 16),
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Row(
                             children: [
-                              Icon(Icons.format_list_numbered, color: Colors.purple), // Adding an icon before Rate Quantity field
-                              SizedBox(width: 5),
+                              const Icon(Icons.format_list_numbered, color: Colors.purple), // Adding an icon before Rate Quantity field
+                              const SizedBox(width: 5),
                               Flexible(
                                 child: Text(
                                   'Rate Quantity (value / unit): ${medications[index]['rateQuantity']}',
-                                  style: TextStyle(fontSize: 16),
+                                  style: const TextStyle(fontSize: 16),
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Row(
                             children: [
-                              Icon(Icons.person, color: Colors.teal), // Adding an icon before Prescriber field
-                              SizedBox(width: 5),
+                              const Icon(Icons.person, color: Colors.teal), // Adding an icon before Prescriber field
+                              const SizedBox(width: 5),
                               Flexible(
                                 child: Text(
                                   'Prescriber: ${medications[index]['prescriber']}',
-                                  style: TextStyle(fontSize: 16),
+                                  style: const TextStyle(fontSize: 16),
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                         ],
                       ),
                     ),
                   );
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 'Medication Name Chart',
                 style: TextStyle(
@@ -193,8 +195,8 @@ class _MedicationPageState extends State<MedicationPage> {
                     fontWeight: FontWeight.bold,
                     fontFamily: GoogleFonts.sourceSansPro().fontFamily),
               ),
-              SizedBox(height: 10),
-              Container(
+              const SizedBox(height: 10),
+              SizedBox(
                 height: 300, // Adjusting the height of the chart container
                 child: SfCircularChart(
                   legend: Legend(
@@ -207,14 +209,14 @@ class _MedicationPageState extends State<MedicationPage> {
                       dataSource: _prepareMedicationData(),
                       xValueMapper: (MedicationData data, _) => data.medication,
                       yValueMapper: (MedicationData data, _) => data.count,
-                      dataLabelSettings: DataLabelSettings(isVisible: true),
+                      dataLabelSettings: const DataLabelSettings(isVisible: true),
                       radius: '80%',
                       innerRadius: '50%',
                     )
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 'Prescriber Chart',
                 style: TextStyle(
@@ -222,8 +224,8 @@ class _MedicationPageState extends State<MedicationPage> {
                     fontWeight: FontWeight.bold,
                     fontFamily: GoogleFonts.sourceSansPro().fontFamily),
               ),
-              SizedBox(height: 10),
-              Container(
+              const SizedBox(height: 10),
+              SizedBox(
                 height: 300, // Adjusting the height of the chart container
                 child: SfCircularChart(
                   legend: Legend(
@@ -236,14 +238,14 @@ class _MedicationPageState extends State<MedicationPage> {
                       dataSource: _preparePrescriberData(),
                       xValueMapper: (PrescriberData data, _) => data.prescriber,
                       yValueMapper: (PrescriberData data, _) => data.count,
-                      dataLabelSettings: DataLabelSettings(isVisible: true),
+                      dataLabelSettings: const DataLabelSettings(isVisible: true),
                       radius: '80%',
                       innerRadius: '50%',
                     )
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 'Yearly Prescription Chart',
                 style: TextStyle(
@@ -251,8 +253,8 @@ class _MedicationPageState extends State<MedicationPage> {
                     fontWeight: FontWeight.bold,
                     fontFamily: GoogleFonts.sourceSansPro().fontFamily),
               ),
-              SizedBox(height: 10),
-              Container(
+              const SizedBox(height: 10),
+              SizedBox(
                 height: 300, // Adjusting the height of the chart container
                 child: SfCartesianChart(
                   primaryXAxis: CategoryAxis(),
@@ -262,12 +264,12 @@ class _MedicationPageState extends State<MedicationPage> {
                       dataSource: _prepareYearData(),
                       xValueMapper: (YearData data, _) => data.year,
                       yValueMapper: (YearData data, _) => data.count,
-                      dataLabelSettings: DataLabelSettings(isVisible: true),
+                      dataLabelSettings: const DataLabelSettings(isVisible: true),
                     )
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 'Add Medication',
                 style: TextStyle(
@@ -275,10 +277,10 @@ class _MedicationPageState extends State<MedicationPage> {
                     fontWeight: FontWeight.bold,
                     fontFamily: GoogleFonts.sourceSansPro().fontFamily),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Container(
                 color: Colors.grey[300],
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 child: Form(
                   key: _formKey,
                   child: Column(
@@ -286,12 +288,12 @@ class _MedicationPageState extends State<MedicationPage> {
                     children: [
                       TextFormField(
                         decoration: InputDecoration(
-                          border: OutlineInputBorder(),
+                          border: const OutlineInputBorder(),
                           fillColor: Colors.grey[200],
                           filled: true,
-                          prefixIcon: Icon(Icons.medical_services, color: Colors.blue),
+                          prefixIcon: const Icon(Icons.medical_services, color: Colors.blue),
                           labelText: 'Name of Medication',
-                          labelStyle: TextStyle(fontSize: 16),
+                          labelStyle: const TextStyle(fontSize: 16),
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -306,7 +308,7 @@ class _MedicationPageState extends State<MedicationPage> {
                           medicationName = value!;
                         },
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       GestureDetector(
                         onTap: () {
                           _selectDate(context);
@@ -314,12 +316,12 @@ class _MedicationPageState extends State<MedicationPage> {
                         child: AbsorbPointer(
                           child: TextFormField(
                             decoration: InputDecoration(
-                              border: OutlineInputBorder(),
+                              border: const OutlineInputBorder(),
                               fillColor: Colors.grey[200],
                               filled: true,
-                              prefixIcon: Icon(Icons.calendar_today, color: Colors.green),
+                              prefixIcon: const Icon(Icons.calendar_today, color: Colors.green),
                               labelText: 'Date',
-                              labelStyle: TextStyle(fontSize: 16),
+                              labelStyle: const TextStyle(fontSize: 16),
                             ),
                             validator: (value) {
                               if (value == null || value.isEmpty) {
@@ -334,15 +336,15 @@ class _MedicationPageState extends State<MedicationPage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       TextFormField(
                         decoration: InputDecoration(
-                          border: OutlineInputBorder(),
+                          border: const OutlineInputBorder(),
                           fillColor: Colors.grey[200],
                           filled: true,
-                          prefixIcon: Icon(Icons.info, color: Colors.red),
+                          prefixIcon: const Icon(Icons.info, color: Colors.red),
                           labelText: 'Instructions',
-                          labelStyle: TextStyle(fontSize: 16),
+                          labelStyle: const TextStyle(fontSize: 16),
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -354,15 +356,15 @@ class _MedicationPageState extends State<MedicationPage> {
                           instructions = value!;
                         },
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       TextFormField(
                         decoration: InputDecoration(
-                          border: OutlineInputBorder(),
+                          border: const OutlineInputBorder(),
                           fillColor: Colors.grey[200],
                           filled: true,
-                          prefixIcon: Icon(Icons.format_list_numbered, color: Colors.orange),
+                          prefixIcon: const Icon(Icons.format_list_numbered, color: Colors.orange),
                           labelText: 'Dose Quantity (value / unit)',
-                          labelStyle: TextStyle(fontSize: 16),
+                          labelStyle: const TextStyle(fontSize: 16),
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -376,15 +378,15 @@ class _MedicationPageState extends State<MedicationPage> {
                           doseQuantity = value!;
                         },
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       TextFormField(
                         decoration: InputDecoration(
-                          border: OutlineInputBorder(),
+                          border: const OutlineInputBorder(),
                           fillColor: Colors.grey[200],
                           filled: true,
-                          prefixIcon: Icon(Icons.format_list_numbered, color: Colors.purple),
+                          prefixIcon: const Icon(Icons.format_list_numbered, color: Colors.purple),
                           labelText: 'Rate Quantity (value / unit)',
-                          labelStyle: TextStyle(fontSize: 16),
+                          labelStyle: const TextStyle(fontSize: 16),
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -398,15 +400,15 @@ class _MedicationPageState extends State<MedicationPage> {
                           rateQuantity = value!;
                         },
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       TextFormField(
                         decoration: InputDecoration(
-                          border: OutlineInputBorder(),
+                          border: const OutlineInputBorder(),
                           fillColor: Colors.grey[200],
                           filled: true,
-                          prefixIcon: Icon(Icons.person, color: Colors.teal),
+                          prefixIcon: const Icon(Icons.person, color: Colors.teal),
                           labelText: 'Name of Prescriber',
-                          labelStyle: TextStyle(fontSize: 16),
+                          labelStyle: const TextStyle(fontSize: 16),
                         ),
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -421,7 +423,7 @@ class _MedicationPageState extends State<MedicationPage> {
                           prescriber = value!;
                         },
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Center(
                         child: ElevatedButton(
                           onPressed: () {
@@ -445,7 +447,7 @@ class _MedicationPageState extends State<MedicationPage> {
                               });
                             }
                           },
-                          child: Text('Submit'),
+                          child: const Text('Submit'),
                         ),
                       ),
                     ],

@@ -11,6 +11,8 @@ import 'custom_drawer_menu.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +27,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
       ),
-      endDrawer: CustomDrawer(), // Including the custom drawer
+      endDrawer: const CustomDrawer(), // Including the custom drawer
       body: Container(
         color: Colors.grey[300], // Setting the background color to grey
         child: ListView(
@@ -35,12 +37,12 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.ac_unit_rounded,
                     color: Colors.red,
                     size: 20.0,
                   ),
-                  SizedBox(width: 8.0),
+                  const SizedBox(width: 8.0),
                   Text(
                     'Welcome, Ellen Ross!',
                     style: TextStyle(
@@ -52,9 +54,9 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-            Divider(), // Adding a divider between the welcome text and the cards
+            const Divider(), // Adding a divider between the welcome text and the cards
             ListTile(
-              title: Row(
+              title: const Row(
                 children: [
                   Icon(
                     Icons.favorite,
@@ -71,17 +73,17 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              trailing: Icon(Icons.arrow_forward_ios_rounded),
+              trailing: const Icon(Icons.arrow_forward_ios_rounded),
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => AllergiesPage()),
+                  MaterialPageRoute(builder: (context) => const AllergiesPage()),
                 );
               },
             ),
-            Divider(), // Adding a divider between the cards
+            const Divider(), // Adding a divider between the cards
             ListTile(
-              title: Row(
+              title: const Row(
                 children: [
                   Icon(
                     Icons.healing,
@@ -95,17 +97,17 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              trailing: Icon(Icons.arrow_forward_ios_rounded),
+              trailing: const Icon(Icons.arrow_forward_ios_rounded),
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ImmunizationsPage()),
+                  MaterialPageRoute(builder: (context) => const ImmunizationsPage()),
                 );
               },
             ),
-            Divider(), // Adding a divider between the cards
+            const Divider(), // Adding a divider between the cards
             ListTile(
-              title: Row(
+              title: const Row(
                 children: [
                   Icon(
                     Icons.medication,
@@ -119,17 +121,17 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              trailing: Icon(Icons.arrow_forward_ios_rounded),
+              trailing: const Icon(Icons.arrow_forward_ios_rounded),
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MedicationPage()),
+                  MaterialPageRoute(builder: (context) => const MedicationPage()),
                 );
               },
             ),
-            Divider(), // Adding a divider between the cards
+            const Divider(), // Adding a divider between the cards
             ListTile(
-              title: Row(
+              title: const Row(
                 children: [
                   Icon(
                     Icons.assignment,
@@ -143,17 +145,17 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              trailing: Icon(Icons.arrow_forward_ios_rounded),
+              trailing: const Icon(Icons.arrow_forward_ios_rounded),
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ProblemListPage()),
+                  MaterialPageRoute(builder: (context) => const ProblemListPage()),
                 );
               },
             ),
-            Divider(), // Adding a divider between the cards
+            const Divider(), // Adding a divider between the cards
             ListTile(
-              title: Row(
+              title: const Row(
                 children: [
                   Icon(
                     Icons.medical_services,
@@ -167,17 +169,17 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              trailing: Icon(Icons.arrow_forward_ios_rounded),
+              trailing: const Icon(Icons.arrow_forward_ios_rounded),
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ProceduresPage()),
+                  MaterialPageRoute(builder: (context) => const ProceduresPage()),
                 );
               },
             ),
-            Divider(), // Adding a divider between the cards
+            const Divider(), // Adding a divider between the cards
             ListTile(
-              title: Row(
+              title: const Row(
                 children: [
                   Icon(
                     Icons.people,
@@ -191,17 +193,17 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              trailing: Icon(Icons.arrow_forward_ios_rounded),
+              trailing: const Icon(Icons.arrow_forward_ios_rounded),
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => GuardianPage()),
+                  MaterialPageRoute(builder: (context) => const GuardianPage()),
                 );
               },
             ),
-            Divider(), // Adding a divider between the cards
+            const Divider(), // Adding a divider between the cards
             ListTile(
-              title: Row(
+              title: const Row(
                 children: [
                   Icon(
                     Icons.person,
@@ -215,17 +217,17 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              trailing: Icon(Icons.arrow_forward_ios_rounded),
+              trailing: const Icon(Icons.arrow_forward_ios_rounded),
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => DemographicsPage()),
+                  MaterialPageRoute(builder: (context) => const DemographicsPage()),
                 );
               },
             ),
-            Divider(), // Adding a divider between the cards
+            const Divider(), // Adding a divider between the cards
             ListTile(
-              title: Row(
+              title: const Row(
                 children: [
                   Icon(
                     Icons.assignment_turned_in,
@@ -239,15 +241,15 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              trailing: Icon(Icons.arrow_forward_ios_rounded),
+              trailing: const Icon(Icons.arrow_forward_ios_rounded),
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => PlanOfCarePage()),
+                  MaterialPageRoute(builder: (context) => const PlanOfCarePage()),
                 );
               },
             ),
-            Divider(), // Adding a divider after the last page name
+            const Divider(), // Adding a divider after the last page name
           ],
         ),
       ),
@@ -257,7 +259,7 @@ class HomePage extends StatelessWidget {
           onPressed: () {
             Scaffold.of(context).openEndDrawer();
           },
-          child: Icon(Icons.menu),
+          child: const Icon(Icons.menu),
         ),
       ),
     );
@@ -265,10 +267,12 @@ class HomePage extends StatelessWidget {
 }
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -276,7 +280,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }

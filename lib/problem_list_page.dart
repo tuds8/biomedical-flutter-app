@@ -8,6 +8,8 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProblemListPage extends StatefulWidget {
+  const ProblemListPage({super.key});
+
   @override
   _ProblemListPageState createState() => _ProblemListPageState();
 }
@@ -50,11 +52,11 @@ class _ProblemListPageState extends State<ProblemListPage> {
               fontFamily: GoogleFonts.playfairDisplay().fontFamily),
         ),
         leading: IconButton(
-          icon: Icon(Icons.home),
+          icon: const Icon(Icons.home),
           onPressed: () {
             Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (context) => HomePage()),
+              MaterialPageRoute(builder: (context) => const HomePage()),
               (Route<dynamic> route) => false,
             );
           },
@@ -62,13 +64,13 @@ class _ProblemListPageState extends State<ProblemListPage> {
         actions: [
           Builder(
             builder: (context) => IconButton(
-              icon: Icon(Icons.menu),
+              icon: const Icon(Icons.menu),
               onPressed: () => Scaffold.of(context).openEndDrawer(),
             ),
           ),
         ],
       ),
-      endDrawer: CustomDrawer(), // Including the custom drawer
+      endDrawer: const CustomDrawer(), // Including the custom drawer
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
@@ -82,10 +84,10 @@ class _ProblemListPageState extends State<ProblemListPage> {
                     fontWeight: FontWeight.bold,
                     fontFamily: GoogleFonts.sourceSansPro().fontFamily),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               ListView.builder(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: problems.length,
                 itemBuilder: (context, index) {
                   return Card(
@@ -101,63 +103,63 @@ class _ProblemListPageState extends State<ProblemListPage> {
                         children: <Widget>[
                           Row(
                             children: [
-                              Icon(Icons.label, color: Colors.blue), // Adding an icon before Observation field
-                              SizedBox(width: 5),
+                              const Icon(Icons.label, color: Colors.blue), // Adding an icon before Observation field
+                              const SizedBox(width: 5),
                               Flexible(
                                 child: Text(
                                   'Observation: ${problems[index]['observation']}',
-                                  style: TextStyle(fontSize: 16),
+                                  style: const TextStyle(fontSize: 16),
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Row(
                             children: [
-                              Icon(Icons.assignment, color: Colors.green), // Adding an icon before Status field
-                              SizedBox(width: 5),
+                              const Icon(Icons.assignment, color: Colors.green), // Adding an icon before Status field
+                              const SizedBox(width: 5),
                               Flexible(
                                 child: Text(
                                   'Status: ${problems[index]['status']}',
-                                  style: TextStyle(fontSize: 16),
+                                  style: const TextStyle(fontSize: 16),
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Row(
                             children: [
-                              Icon(Icons.calendar_today, color: Colors.orange), // Adding an icon before Date field
-                              SizedBox(width: 5),
+                              const Icon(Icons.calendar_today, color: Colors.orange), // Adding an icon before Date field
+                              const SizedBox(width: 5),
                               Flexible(
                                 child: Text(
                                   'Date: ${problems[index]['date']}',
-                                  style: TextStyle(fontSize: 16),
+                                  style: const TextStyle(fontSize: 16),
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Row(
                             children: [
-                              Icon(Icons.comment, color: Colors.red), // Adding an icon before Comments field
-                              SizedBox(width: 5),
+                              const Icon(Icons.comment, color: Colors.red), // Adding an icon before Comments field
+                              const SizedBox(width: 5),
                               Flexible(
                                 child: Text(
                                   'Comments: ${problems[index]['comments']}',
-                                  style: TextStyle(fontSize: 16),
+                                  style: const TextStyle(fontSize: 16),
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 20),
+                          const SizedBox(height: 20),
                         ],
                       ),
                     ),
                   );
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 'Observation Chart',
                 style: TextStyle(
@@ -165,8 +167,8 @@ class _ProblemListPageState extends State<ProblemListPage> {
                     fontWeight: FontWeight.bold,
                     fontFamily: GoogleFonts.sourceSansPro().fontFamily),
               ),
-              SizedBox(height: 10),
-              Container(
+              const SizedBox(height: 10),
+              SizedBox(
                 height: 400, // Adjusting the height of the chart container
                 child: SfCircularChart(
                   legend: Legend(
@@ -179,14 +181,14 @@ class _ProblemListPageState extends State<ProblemListPage> {
                       dataSource: _prepareObservationData(),
                       xValueMapper: (ObservationData data, _) => data.observation,
                       yValueMapper: (ObservationData data, _) => data.count,
-                      dataLabelSettings: DataLabelSettings(isVisible: true),
+                      dataLabelSettings: const DataLabelSettings(isVisible: true),
                       radius: '80%',
                       innerRadius: '50%',
                     )
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 'Status Chart',
                 style: TextStyle(
@@ -194,8 +196,8 @@ class _ProblemListPageState extends State<ProblemListPage> {
                     fontWeight: FontWeight.bold,
                     fontFamily: GoogleFonts.sourceSansPro().fontFamily),
               ),
-              SizedBox(height: 10),
-              Container(
+              const SizedBox(height: 10),
+              SizedBox(
                 height: 400, // Adjusting the height of the chart container
                 child: SfCircularChart(
                   legend: Legend(
@@ -208,14 +210,14 @@ class _ProblemListPageState extends State<ProblemListPage> {
                       dataSource: _prepareStatusData(),
                       xValueMapper: (StatusData data, _) => data.status,
                       yValueMapper: (StatusData data, _) => data.count,
-                      dataLabelSettings: DataLabelSettings(isVisible: true),
+                      dataLabelSettings: const DataLabelSettings(isVisible: true),
                       radius: '80%',
                       innerRadius: '50%',
                     )
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 'Add Problem',
                 style: TextStyle(
@@ -223,10 +225,10 @@ class _ProblemListPageState extends State<ProblemListPage> {
                     fontWeight: FontWeight.bold,
                     fontFamily: GoogleFonts.sourceSansPro().fontFamily),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Container(
                 color: Colors.grey[300],
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 child: Form(
                   key: _formKey,
                   child: Column(
@@ -235,10 +237,10 @@ class _ProblemListPageState extends State<ProblemListPage> {
                       TextFormField(
                         decoration: InputDecoration(
                           labelText: 'Observation',
-                          border: OutlineInputBorder(),
+                          border: const OutlineInputBorder(),
                           fillColor: Colors.grey[200],
                           filled: true,
-                          prefixIcon: IconTheme(
+                          prefixIcon: const IconTheme(
                             data: IconThemeData(color: Colors.blue), // Setting the color of the icon
                             child: Icon(Icons.label), // Adding an icon before Observation field
                           ),
@@ -256,14 +258,14 @@ class _ProblemListPageState extends State<ProblemListPage> {
                           observation = value!;
                         },
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       TextFormField(
                         decoration: InputDecoration(
                           labelText: 'Status',
-                          border: OutlineInputBorder(),
+                          border: const OutlineInputBorder(),
                           fillColor: Colors.grey[200],
                           filled: true,
-                          prefixIcon: IconTheme(
+                          prefixIcon: const IconTheme(
                             data: IconThemeData(color: Colors.green), // Setting the color of the icon
                             child: Icon(Icons.assignment), // Adding an icon before Status field
                           ),
@@ -281,7 +283,7 @@ class _ProblemListPageState extends State<ProblemListPage> {
                           status = value!;
                         },
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       GestureDetector(
                         onTap: () {
                           _selectDate(context);
@@ -290,10 +292,10 @@ class _ProblemListPageState extends State<ProblemListPage> {
                           child: TextFormField(
                             decoration: InputDecoration(
                               labelText: 'Date',
-                              border: OutlineInputBorder(),
+                              border: const OutlineInputBorder(),
                               fillColor: Colors.grey[200],
                               filled: true,
-                              prefixIcon: IconTheme(
+                              prefixIcon: const IconTheme(
                                 data: IconThemeData(color: Colors.orange), // Setting the color of the icon
                                 child: Icon(Icons.calendar_today), // Adding an icon before Date field
                               ),
@@ -314,14 +316,14 @@ class _ProblemListPageState extends State<ProblemListPage> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       TextFormField(
                         decoration: InputDecoration(
                           labelText: 'Comments',
-                          border: OutlineInputBorder(),
+                          border: const OutlineInputBorder(),
                           fillColor: Colors.grey[200],
                           filled: true,
-                          prefixIcon: IconTheme(
+                          prefixIcon: const IconTheme(
                             data: IconThemeData(color: Colors.red), // Setting the color of the icon
                             child: Icon(Icons.comment), // Adding an icon before Comments field
                           ),
@@ -336,7 +338,7 @@ class _ProblemListPageState extends State<ProblemListPage> {
                           comments = value!;
                         },
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Center(
                         child: ElevatedButton(
                           onPressed: () {
@@ -356,7 +358,7 @@ class _ProblemListPageState extends State<ProblemListPage> {
                               });
                             }
                           },
-                          child: Text('Submit'),
+                          child: const Text('Submit'),
                         ),
                       ),
                     ],

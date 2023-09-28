@@ -6,6 +6,8 @@ import 'home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DemographicsPage extends StatefulWidget {
+  const DemographicsPage({super.key});
+
   @override
   _DemographicsPageState createState() => _DemographicsPageState();
 }
@@ -40,11 +42,11 @@ class _DemographicsPageState extends State<DemographicsPage> {
               fontFamily: GoogleFonts.playfairDisplay().fontFamily),
         ),
         leading: IconButton(
-          icon: Icon(Icons.home),
+          icon: const Icon(Icons.home),
           onPressed: () {
             Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (context) => HomePage()),
+              MaterialPageRoute(builder: (context) => const HomePage()),
               (Route<dynamic> route) => false,
             );
           },
@@ -52,13 +54,13 @@ class _DemographicsPageState extends State<DemographicsPage> {
         actions: [
           Builder(
             builder: (context) => IconButton(
-              icon: Icon(Icons.menu),
+              icon: const Icon(Icons.menu),
               onPressed: () => Scaffold.of(context).openEndDrawer(),
             ),
           ),
         ],
       ),
-      endDrawer: CustomDrawer(), // Including the custom drawer
+      endDrawer: const CustomDrawer(), // Including the custom drawer
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -71,63 +73,63 @@ class _DemographicsPageState extends State<DemographicsPage> {
                 label: 'First Name',
                 value: demographics['firstName'] ?? '',
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               CardInfo(
                 icon: Icons.person,
                 color: Colors.orange,
                 label: 'Last Name',
                 value: demographics['lastName'] ?? '',
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               CardInfo(
                 icon: Icons.wc,
                 color: Colors.blue,
                 label: 'Gender',
                 value: demographics['gender'] ?? '',
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               CardInfo(
                 icon: Icons.people,
                 color: Colors.pink,
                 label: 'Marital Status',
                 value: demographics['maritalStatus'] ?? '',
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               CardInfo(
                 icon: Icons.add_location,
                 color: Colors.red,
                 label: 'Religious Affiliation',
                 value: demographics['religiousAffiliation'] ?? '',
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               CardInfo(
                 icon: Icons.face,
                 color: Colors.purple,
                 label: 'Ethnicity',
                 value: demographics['ethnicity'] ?? '',
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               CardInfo(
                 icon: Icons.language,
                 color: Colors.blueGrey,
                 label: 'Language',
                 value: demographics['language'] ?? '',
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               CardInfo(
                 icon: Icons.location_on,
                 color: Colors.red,
                 label: 'Address',
                 value: demographics['address'] ?? '',
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               CardInfo(
                 icon: Icons.phone,
                 color: Colors.purple,
                 label: 'Telephone',
                 value: demographics['telephone'] ?? '',
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               CardInfo(
                 icon: Icons.cake,
                 color: Colors.teal,
@@ -148,7 +150,7 @@ class CardInfo extends StatelessWidget {
   final String label;
   final String value;
 
-  const CardInfo({
+  const CardInfo({super.key, 
     required this.icon,
     required this.color,
     required this.label,
@@ -170,11 +172,11 @@ class CardInfo extends StatelessWidget {
             Row(
               children: <Widget>[
                 Icon(icon, color: color),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Flexible(
                   child: Text(
                     '$label: $value',
-                    style: TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16),
                     softWrap: true,
                   ),
                 ),
